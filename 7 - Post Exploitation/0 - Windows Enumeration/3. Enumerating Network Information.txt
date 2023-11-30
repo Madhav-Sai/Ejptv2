@@ -1,0 +1,11 @@
+### Enumerating Network Information
+
+```
+ipconfig
+ipconfig /all
+route print
+arp -a
+netstat -ano
+```
+
+

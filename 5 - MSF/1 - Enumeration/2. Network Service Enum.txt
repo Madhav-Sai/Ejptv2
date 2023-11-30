@@ -1,0 +1,71 @@
+### Metasploit (Enumerate various services)
+
+---
+
+##### SMB version scanning
+
+> - use auxiliary/scanner/smb/smb_version
+
+---
+
+##### FTP version scanning
+
+> - use auxiliary/scanner/ftp/ftp_version
+
+---
+
+##### FTP Brute force
+
+> - use auxiliary/scanner/ftp/ftp_login
+
+---
+
+##### FTP Anonymous
+
+> - use auxiliary/scanner/ftp/anonymous
+
+---
+
+##### Enumerate Apache server
+
+*Brute Force directories*
+
+> - auxiliary/scanner/http/brute_dirs    
+
+*Brute Force directories*
+
+> - auxiliary/scanner/http/dir_scanner      
+
+*List directories*
+
+> - auxiliary/scanner/http/dir_listing
+
+*Try Put/Delete request on the SRV*
+
+> - auxiliary/scanner/http/http_put
+
+*Brute Force for files*
+
+> - auxiliary/scanner/http/files_dir
+
+*Try auth against a web SRV*
+
+> - auxiliary/scanner/http/http_login
+
+*HTTP Header*
+
+> - auxiliary/scanner/http/http_header 
+
+*Web Server version detection*
+
+> - auxiliary/scanner/http/http_version
+
+*Read the robot.txt file*
+
+> - auxiliary/scanner/http/robots_txt 
+
+*list existing users on the SRV*
+
+> - auxiliary/scanner/http/apache_userdir_enum
+
+Apache with the UserDir directive enabled generates different error codes when a username exists and there is no public_html directory and when the username does not exist, which could allow remote attackers to determine valid usernames on the server.

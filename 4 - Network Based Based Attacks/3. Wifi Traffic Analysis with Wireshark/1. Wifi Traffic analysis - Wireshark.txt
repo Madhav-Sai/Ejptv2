@@ -1,0 +1,59 @@
+### Wireshark Filter
+
+---
+
+##### Display the name of the Open SSID present in the packet dump
+
+> - (wlan.fc.type_subtype == 0x0008) && (!(wlan.wfa.ie.wpa.version == 1)) && !(wlan.tag.number == 48)
+
+- *(wlan.fc.type_subtype == 0x0008)*  >> Filter for Beacon
+- *! (wlan.wfa.ie.wpa.version)*  >> Removes packets for WPA Version
+- *! (wlan.tag.number == 48)* >> Removes packets with RSN information tags
+
+---
+
+##### The SSID 'Home_Network' is operating on which channel
+
+> - Filter: wlan contains Home_Network
+
+---
+
+##### Which security mechanism is configured for SSID 'LazyArtists'?
+
+> - wlan contains LazyArtists
+
+Display RSN informations
+
+---
+
+##### Is WiFi Protected Setup (WPS) enabled on SSID 'Amazon Wood'?
+
+> - (wlan.ssid contains "Amazon") && (wlan.fc.type_subtype == 0x0008)
+
+---
+
+##### What is the total count of packets which were either transmitted or received by the device with MAC e8:de:27:16:87:18
+
+> - (wlan.ta == e8:de:27:16:87:18) || (wlan.ra == e8:de:27:16:87:18)
+
+---
+
+##### What is the MAC address of the station which exchanged data packets with SSID 'SecurityTube_Open
+
+SSID SecurityTube_Open is hosted on BSSID e8:de:27:16:87:18.
+
+> - ((wlan.bssid == e8:de:27:16:87:18) ) && (wlan.fc.type_subtype == 0x0020)
+
+---
+
+##### From the last question, we know that a station was connected to SSID 'SecurityTube_Open'. Provide TSF timestamp of the association response sent from the access point to this station
+
+> - (((wlan.bssid == e8:de:27:16:87:18)) && (wlan.addr==5c:51:88:31:a0:3b)) && (wlan.fc.type_subtype == 0x0001)>
+
+*wlan.fc.type_subtype == 0x0001* >> Associations responses
+
+Under 802.11 radio informations
+
+ Display the tag parameters (tag name vendor specific)
+
+

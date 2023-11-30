@@ -1,0 +1,64 @@
+# Metasploit (MySQL Enum)
+
+---------------------------------------------------------------
+
+###  Enum MySQL
+
+> - auxiliary/admin/mysql/mysql_enum
+
+---------------------------------------------------------------
+
+### Execute sql query on the server 
+
+*require credentials*
+> - auxiliary/admin/mysql/mysql_sql
+
+---------------------------------------------------------------
+
+### Enum file on the server
+
+*require credentials*
+> - auxiliary/scanner/mysql/mysql_file_enum
+---------------------------------------------------------------
+
+###  Dump creds
+
+*require credentials*
+> - auxiliary/scanner/mysql/mysql_hashdump
+
+
+---------------------------------------------------------------
+
+###  Brute force login
+
+
+> - auxiliary/scanner/mysql/mysql_login
+    
+    
+---------------------------------------------------------------
+
+### Get the server schema
+ 
+> - auxiliary/scanner/mysql/mysql_schemadump
+    
+
+
+---------------------------------------------------------------
+
+###  Get server version
+
+
+> - auxiliary/scanner/mysql/mysql_version
+    
+---------------------------------------------------------------
+
+###  Get writable directories
+
+> - auxiliary/scanner/mysql/mysql_writable_dirs
+
+
+
+
+
+
+

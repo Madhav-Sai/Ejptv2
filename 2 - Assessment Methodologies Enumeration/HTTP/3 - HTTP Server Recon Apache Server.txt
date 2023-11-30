@@ -1,0 +1,128 @@
+# HTTP ENUMERATION - PART 3
+
+---------------------------------------------------------------
+
+### Which web server software is running on the target (using NMAP)
+
+> nmap -sV -script banner 192.30.247.3
+
+
+---------------------------------------------------------------
+
+### Which web server software is running on the target (using Metasploit)
+
+
+> - msfconsole
+> - use auxiliary/scanner/http/http_version
+> - set RHOSTS 192.30.247.3
+> - exploit
+
+
+---------------------------------------------------------------
+
+### Check what web app is hosted on the web server using curl
+
+
+> curl < URL >
+
+---------------------------------------------------------------
+
+### Check what web app is hosted on the web server using wget
+
+> wget < URL >
+
+
+The script sends an OPTIONS request which lists the dav type, server type, date and allowed methods. It then sends a PROPFIND request and tries to fetch exposed directories and internal ip addresses by doing pattern matching in the response body. 
+
+
+---------------------------------------------------------------
+
+### Check what web app is hosted on the web server using browsh
+
+> browsh --startup-url < URL >
+
+
+
+---------------------------------------------------------------
+
+### Check what web app is hosted on the web server using lynx
+
+> lynx http://192.30.247.3
+
+
+
+---------------------------------------------------------------
+
+### Perform bruteforce on webserver directories using METASPLOIT
+
+> - use auxiliary/scanner/http/brute_dirs
+> - set RHOSTS 192.30.247.3
+> - exploit
+
+---------------------------------------------------------------
+
+### Perform bruteforce on webserver directories using dirb
+
+
+> dirb < url > directory.txt
+
+---------------------------------------------------------------
+
+### Check which bot is specifically banned from accessing the directory
+
+> - use auxiliary/scanner/http/robots_txt
+> - set RHOSTS 192.30.247.3
+> - run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

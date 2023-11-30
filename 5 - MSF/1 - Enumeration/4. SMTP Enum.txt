@@ -1,0 +1,64 @@
+### Metasploit (SMTP Enum)
+
+---
+
+##### What is the SMTP server name and banner
+
+> - nmap -sV -script banner 192.80.153.3 -p 25
+
+---
+
+##### Retrieve the hostname of the server
+
+> - nc 192.80.153.3 25
+
+---
+
+##### Check manually if a user exist
+
+> - nc 192.80.153.3 25
+> - VRFY admin@openmailbox.xyz (Expected response 252)
+
+---
+
+##### commands can be used to check the supported commands
+
+> - telnet 192.26.29.3 25
+> - HELO attacker.xyz  //  
+> - EHLO attacker.xyz  // Modern SMTP clients normally use the more recent `EHLO` command in place of `HELO`
+
+---
+
+##### Enumerate user
+
+*smtp-user-enum tool*
+
+> - smtp-user-enum -U /usr/share/commix/src/txt/usernames.txt -t 192.80.153.3
+
+*Metasploit*
+
+> - use auxiliary/scanner/smtp/smtp_enum
+
+---
+
+##### send a fake mail to root user
+
+> - telnet 192.26.29.3 25
+> - HELO attacker.xyz
+> - mail from: admin@attacker.xyz
+> - rcpt to:root@openmailbox.xyz
+> - data
+> - Subject: Hi Root
+> - Hello,
+> - This is a fake mail sent using telnet command.
+> - From,
+> - Admin
+> - .
+
+*Note: There is a dot(.) in the last line which indicates the termination of data.*
+
+---
+
+##### Send a fake mail to root user using sendemail command
+
+> - sendemail -f admin@attacker.xyz -t root@openmailbox.xyz -s 192.26.29.3 -u Fakemail -m "Hi root, a fake from admin" -o tls=no>

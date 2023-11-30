@@ -1,0 +1,31 @@
+### Enumerating Processes & Services
+
+###### List of running processes
+
+```
+ps 
+```
+
+###### List of running services (started only)
+
+```
+net start
+```
+
+###### List of services (running + stopped)
+
+```
+wmic service list brief
+```
+
+###### Enumerate list of running tasks associated with services
+
+```
+tasklist /SVC
+```
+
+###### List of scheduled tasks
+
+```
+schtasks /query /fo LIST
+```

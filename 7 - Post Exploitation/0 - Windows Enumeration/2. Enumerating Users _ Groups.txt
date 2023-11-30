@@ -1,0 +1,48 @@
+### Enumerating Users & Groups
+
+
+
+###### Meterpreter
+
+```
+getuid   // enumerate user information through meterpreter
+getprivs // enumerate user privileges
+```
+
+###### Check list of current users logged
+
+```
+use post/windows/gather/enum_logged_on_users
+```
+
+###### Enumerate user privileges (Windows CMD)
+
+```
+whoami /priv
+```
+
+###### List all account on the system
+
+```
+net users
+```
+
+###### Learn more about an account : Exemple administrator
+
+```
+net user administrator
+```
+
+###### Enumerate group on the system
+
+```
+net localgroup
+```
+
+###### Learn more about a group: Exemple administrators
+
+this command show the users that belong to the group administrators
+
+```
+net localgroup administrators
+```

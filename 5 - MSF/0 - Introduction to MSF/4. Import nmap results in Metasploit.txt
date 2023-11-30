@@ -1,0 +1,24 @@
+# MSF in all phases of Pentesting
+
+---------------------------------------------------------------
+
+- *Check the postgresql databases states*
+> - db_status
+
+- *Import scan results*
+> - db_import /PATH-TO-SCAN-RESULTS/SCAN.xml
+
+- *List all hosts*
+> - List imported hosts
+
+- *List all services running on targets*
+> - services 
+
+
+
+
+
+
+
+
+

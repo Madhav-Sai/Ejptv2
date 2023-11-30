@@ -1,0 +1,45 @@
+### SAMBA ENUMERATION
+
+##### SAMBA Enumeration (NMAP Script)
+
+> nmap --script smb-os-discovery.nse -p 445 10.10.10.10
+
+We can also find informations like : OS version, Computer Name, Netbios Name, FQDN, System Time
+
+---
+
+##### SAMBA Enumeration (Metasploit)
+
+> use /auxiliary/scanner/smb/smb_version
+> 
+> set RHOSTS
+> 
+> exploit
+
+---
+
+##### Find the Netbios Name with nmblookup
+
+> nmblookup -A 192.126.66.3
+
+---
+
+##### Determine whether anonymous connection (null session) is allowed
+
+> smbclient -L 192.126.66.3 -N
+> 
+> + L -> list host
+> + N -> no pass Authentication
+
+If we see shares, we can say that null sessions is allowed
+
+---
+
+##### Using rpcclient determine whether anonymous connection (null session) is allowed
+
+> rpcclient -U "" -N 10.10.10.10
+> 
+> + U -> Username
+> + N -> No pass Authentication  
+
+If no errors are strown, we can say that null sessions is allowed

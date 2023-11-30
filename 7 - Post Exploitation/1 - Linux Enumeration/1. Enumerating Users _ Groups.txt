@@ -1,0 +1,55 @@
+#### Enumerating Users & Groups
+
+###### Meterpreter
+
+```
+getuid
+```
+
+Who I am
+
+```
+whoami
+```
+
+list the users that belong to root group
+
+```
+groups root
+```
+
+list group present in the system
+
+```
+groups 
+```
+
+Enum users & services account informations
+
+```
+cat /etc/passwd
+```
+
+List users currently logged
+
+```
+who
+```
+
+Show informations regarding users recently logged
+
+```
+lastlog
+```
+
+
+
+
+
+
+
+
+
+
+
+

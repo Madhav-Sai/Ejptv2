@@ -1,0 +1,40 @@
+#### Enumerating System Information
+
+
+
+###### Meterpreter
+
+```
+sysinfo
+```
+
+###### Linux Shell
+
+```
+hostname    // show target name
+cat /etc/issue    // linux distro & release version
+cat /etc/*release    // linux distro & release version
+uname -a    // show the kernel version
+lscpu    // Hardware informations regarding the CPU
+df -h    // informations of storage attached to this linux system
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

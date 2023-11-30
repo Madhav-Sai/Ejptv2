@@ -1,0 +1,9 @@
+# FTP ENUMERATION - PART 2
+
+---------------------------------------------------------------
+
+### Check whether anonymous login is allowed on the ftp
+
+> nmap --script ftp-anon 192.159.18.3
+
+if anonymous login is allowed, we can use anonymous as a username with no password.

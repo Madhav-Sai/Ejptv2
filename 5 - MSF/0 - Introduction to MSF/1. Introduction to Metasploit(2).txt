@@ -1,0 +1,57 @@
+# Metasploit (Introduction)
+
+---------------------------------------------------------------
+
+###  Intro
+
+- Open source , robust penetration testing framework
+- can automate every stage of the penetration life cycle
+- developt and test exploits
+- Modular tools, allowing new functionnalities
+- Availabe on Github
+- Originally developped in Perl(2003), rewritten in ruby (2007),
+- acquired by rapid7 in 2009
+- version 5 (2019), version 6 (2020)
+
+
+---------------------------------------------------------------
+
+###  MSF Edition
+
+- Metasploit framework (Community)
+- Metasploit Pro (Commercial)
+- Metasploit Express (Commercial)
+
+
+---------------------------------------------------------------
+
+###  Terminology
+
+
+- *Interface* : Methods of interacting with MSF
+- *Module* : piece of code that perform a task. An example of a module is an exploit
+- *Vulnerabily* : a weakness or flaw in a computer system or network that can be exploited
+- *Exploit* : piece of code/ module that is used to take advantage of a vulnerability within a system service or application.
+- *Payload* : Piece of code delivered to the target system bu an exploit with the objective of excuting arbitratur commands or provideing remote access to an attacker.
+- *Listener*: a utility that listens to incoming connection from the target
+
+---------------------------------------------------------------
+
+###  MSF Interfaces
+
+
+- *MSFCONSOLE* : CLI
+- *Metasploit Framework CLI* : CLI
+- *Metasploit Community Edition* : (Web Based)
+- *Armitage* : GUI
+
+
+
+
+
+
+
+
+
+
+

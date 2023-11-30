@@ -1,0 +1,84 @@
+# HTTP ENUMERATION - PART 1
+
+---------------------------------------------------------------
+
+### Fetch Web Apps informations using WHATWEB 
+
+Informations we could find : 
+
+- XSS protection
+- Default page of the target
+- HTTP Server
+
+> whatweb < url >
+
+
+---------------------------------------------------------------
+
+### Gather Web server informations using HTTPIE 
+
+Informations we could find : 
+
+- HEADERS
+- XSS PROTECTION
+- COOKIES
+- Default page of the target
+- HTTP Server
+
+> http < url >
+
+
+---------------------------------------------------------------
+
+### Find Web server Directory and Subdirectory using DIRB 
+
+NB: just like dirbuster (directory bruteforcer)
+
+> dirb < url >
+
+
+---------------------------------------------------------------
+
+### TEXT-BASED BROWSER - BROWSH
+
+NB: we can use this tool when we don't have any browser on the machine (only cmd)
+
+> browsh --startup-url < url >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+# HTTP ENUMERATION - PART 2
+
+---------------------------------------------------------------
+
+### Enum HTTP Server using NMAP
+
+> nmap --script http-enum -sV -p 80 10.0.28.146
+
+NB : informations about the target server like software used for hosting the Web Site, potentially interesting folder etc ...
+
+---------------------------------------------------------------
+
+### Enum HTTP Headers using NMAP
+
+
+> nmap --script http-headers -sV -p 80 10.0.28.146
+
+
+---------------------------------------------------------------
+
+### Enum HTTP Methods of a targer URL using NMAP
+
+
+> nmap --script http-methods --script-args http-methods.url-path=/webdav/ 10.0.28.146
+
+
+---------------------------------------------------------------
+
+### WEBDAV SCAN
+
+> nmap --script http-webdav-scan --script-args http-methods.url-path=/webdav/ 10.0.28.146>
+
+
+The script sends an OPTIONS request which lists the dav type, server type, date and allowed methods. It then sends a PROPFIND request and tries to fetch exposed directories and internal ip addresses by doing pattern matching in the response body. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

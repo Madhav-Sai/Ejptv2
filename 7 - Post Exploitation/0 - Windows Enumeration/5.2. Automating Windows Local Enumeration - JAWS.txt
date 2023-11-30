@@ -1,0 +1,13 @@
+#### Automating local enumeration with JAWS
+
+```
+GitHub repository: https://github.com/411Hall/JAWS
+```
+
+###### Command :
+
+```
+powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+```
+
+

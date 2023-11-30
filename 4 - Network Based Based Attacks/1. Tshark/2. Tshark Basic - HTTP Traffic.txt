@@ -1,0 +1,51 @@
+### Tshark
+
+---
+
+##### show only the HTTP traffic from a PCAP file ?
+
+> - tshark -Y ‘http’ -r HTTP_traffic.pcap
+
+---
+
+##### show only the IP packets sent from IP address 1.1.1.1 to 2.2.2.2
+
+> - tshark -r HTTP_traffic.pcap -Y "ip.src==1.1.1.1 && ip.dst==2.2.2.2
+
+---
+
+##### print only packets containing GET requests
+
+> - tshark -r HTTP_traffic.pcap -Y "http.request.method==GET"
+
+---
+
+##### print only source IP and URL & Time for all GET request packets?
+
+> - tshark -r HTTP_traffic.pcap -Y "http.request.method==GET" -Tfields -e frame.time -e ip.src -e http.request.full_uri
+
+---
+
+##### HTTP packets contain the "password" string
+
+> - tshark -r HTTP_traffic.pcap -Y "http contains password”
+
+---
+
+##### Destination IP address for GET requests sent for www.nytimes.com
+
+> - tshark -r HTTP_traffic.pcap -Y "http.request.method==GET &&
+>   
+>   http.host==www.nytimes.com" -Tfields -e ip.dst
+
+---
+
+##### session ID being used by 192.168.252.128 for Amazon.in
+
+> - tshark -r HTTP_traffic.pcap -Y "ip contains amazon.in && ip.src==192.168.252.128" -Tfields -e ip.src -e http.cookie
+
+---
+
+##### What type of OS the machine on IP address 1.1.1.1 is using
+
+> - tshark -r HTTP_traffic.pcap -Y "ip.src==1.1.1.1 && http" -Tfields -e http.user_agent

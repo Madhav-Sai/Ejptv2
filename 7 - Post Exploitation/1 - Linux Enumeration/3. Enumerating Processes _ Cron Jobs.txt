@@ -1,0 +1,25 @@
+#### Enumerating Processes & Cron Jobs
+
+
+
+###### List all running processes
+
+```
+ps
+```
+
+###### List of cron jobs on the linux target
+
+```
+cat /etc/cron*
+```
+
+
+
+
+
+
+
+
+
+

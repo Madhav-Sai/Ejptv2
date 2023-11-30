@@ -1,0 +1,43 @@
+### Tshark
+
+---
+
+##### Which version of Tshark is installed ?
+
+> - tshark -v
+
+---
+
+##### Find all Tshark supported network interfaces for monitoring
+
+> - tshark -D
+
+---
+
+##### Sniff on eth0
+
+> - tshark -i eth0
+
+---
+
+##### Read a file and display the packets list
+
+> - tshark -r HTTP_traffic.pcap
+
+---
+
+##### Find the total number of packets in HTTP_traffic.pcap
+
+> - tshark -r HTTP_traffic.pcap | wc –l
+
+---
+
+##### Read the first 100 packets
+
+> - tshark -r HTTP_traffic.pcap -c 100
+
+---
+
+##### Print the list of protocols in HTTP_traffic.pcap
+
+> - tshark -r HTTP_traffic.pcap -z io,phs –q

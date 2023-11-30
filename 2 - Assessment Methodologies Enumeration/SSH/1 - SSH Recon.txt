@@ -1,0 +1,79 @@
+# SSH ENUMERATION - PART 1
+
+---------------------------------------------------------------
+
+### Fetch the banner using netcat and check the version of SSH server
+
+> nc 192.201.39.3 22
+
+
+---------------------------------------------------------------
+
+### Fetch pre-login SSH banner
+
+> nssh root@192.201.39.3
+
+
+---------------------------------------------------------------
+
+### show list of encryption_algorithm supported by SSH Server
+
+> nmap --script ssh2-enum-algos 192.201.39.3
+
+
+---------------------------------------------------------------
+
+### Extract the Host key used by SSH Server
+
+> nmap --script ssh-hostkey --script-args ssh_hostkey=full 192.201.39.3
+
+
+---------------------------------------------------------------
+
+### Extract the Host key used by SSH Server
+
+> nmap --script ssh-hostkey --script-args ssh_hostkey=full 192.201.39.3
+
+
+---------------------------------------------------------------
+
+### Authentication Methods used by a user
+
+nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=student"
+192.201.39.3
+
+
+- none_Auth = No authentication needed for this user
+- PublicKey = Key Authentication
+- password = Password used for the Auth
+
+---------------------------------------------------------------
+
+### Connect to the SSH Server and Run commands using NMAP
+
+nmap -p 22 --script=ssh-run --script-args="ssh-run.cmd=cat /home/student/FLAG,
+ssh-run.username=student,ssh-run.password=" 192.201.39.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

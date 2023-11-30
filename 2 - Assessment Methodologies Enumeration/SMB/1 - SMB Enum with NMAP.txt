@@ -1,0 +1,42 @@
+# SMB ENUMERATION
+
+### Protocols Enumeration
+
+> NMAP -P 445 --script smb-protocols 10.10.10.10
+
+### SMB Security
+
+> NMAP -P 445 --script smb-security-mode 10.10.10.10
+
+### SMB Sessions enumeration
+
+> - NMAP -p 445 --script smb-enum-sessions 10.10.10.10
+> - NMAP -p 445 --script smb-enum-sessions --script-args smbusername=admin, smbpassword=admin 10.10.10.10
+
+
+### SMB Enumerate shares
+> - NMAP -p 445 --script smb-enum-shares 10.10.10.10
+> - NMAP -p 445 --script smb-enum-shares --script-args smbusername=admin, smbpassword=admin 10.10.10.10
+
+
+### SMB Enumerate shares + LS commands
+> - NMAP -p 445 --script smb-enum-shares,smb-ls --script-args smbusername=admin, smbpassword=admin 10.10.10.10>
+
+
+### SMB Enumerate Users
+> - NMAP -p 445 --script smb-enum-users --script-args smbusername=admin, smbpassword=admin 10.10.10.10
+
+
+### SMB Enumerate stats
+> - NMAP -p 445 --script smb-enum-stats --script-args smbusername=admin, smbpassword=admin 10.10.10.10
+
+### SMB Enumerate domains
+> - NMAP -p 445 --script smb-enum-domains --script-args smbusername=admin, smbpassword=admin 10.10.10.10
+
+
+### SMB Enumerate groups
+> - NMAP -p 445 --script smb-enum-groups --script-args smbusername=admin, smbpassword=admin 10.10.10.10
+
+
+### SMB Enumerate services
+> - NMAP -p 445 --script smb-enum-services --script-args smbusername=admin, smbpassword=admin 10.10.10.10

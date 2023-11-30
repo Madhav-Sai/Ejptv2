@@ -1,0 +1,40 @@
+# Metasploit (Introduction)
+
+---
+
+### [Terminology]()
+
+- ***[Exploit]()*** : piece of code/ module that is used to take advantage of a vulnerability within a system service or application.
+
+- ***[Payload]()*** : Piece of code delivered to the target system bu an exploit with the objective of excuting arbitratur commands or provideing remote access to an attacker. Example : reverse shell
+
+- ***[Listener]()***: a utility that listens to incoming connection from the target
+
+- ***Encoder*** : used to encode payload to avoid AV detection. Exemple of tools : shikata_ga_nai
+
+- ***[NOPS]()*** : Used to ensure that the payloads size are consistent and ensure the stability of the payload when executed.
+
+- ***[Auxiliary]()*** : A module that is used to perform additional functionility like port scanning, dir brute force etc.
+
+---
+
+### MSF Payload Types
+
+- ***[Non staged Payload]()*** : Payload that is sent to the target system as is along with the exploit.
+
+- ***[Staged Payload ]()***: A staged payload is sent in two part :
+  
+  The first (stager) contains a payload that is used to establish reverse connection back to the attacker and download the second part of the payload (stage) and execute it.
+
+> - *[Stagers]()* : establish stable connection between the attacker and the victim in order to download the second part of the payload (the stage)
+> - *[Stage]()* : payload components downloaded and execute on the victim
+
+---
+
+### Modules folders
+
+- MSF Modules (default) is stored under : */usr/share/metasploit-framework/modules*
+
+- Users specified MSF Modules (default) is stored under : *~/.ms4/modules*
+
+

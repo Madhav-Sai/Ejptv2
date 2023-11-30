@@ -1,0 +1,45 @@
+#### Automating Windows Local Enumeration (Meterpreter)
+
+Enum privs of the current user
+
+```
+use post/windows/gather/win_privs
+```
+
+Enum users logged on the system
+
+```
+use post/windows/gather/enum_logged_on_users
+```
+
+Check if the target is a VM
+
+```
+use post/windows/gather/checkvm
+```
+
+list application installed on the target
+
+```
+use post/windows/gather/enum_applications
+```
+
+list other computers of the domain
+
+```
+use post/windows/gather/enum_computers
+```
+
+Enum the installed patches / updates
+
+```
+use post/windows/gather/enum_patches
+```
+
+
+
+
+
+
+
+

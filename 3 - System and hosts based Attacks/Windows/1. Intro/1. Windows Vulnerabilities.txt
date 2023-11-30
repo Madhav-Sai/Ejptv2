@@ -1,0 +1,36 @@
+### WINDOWS VULNERABILITIES
+
+---
+
+##### Brief history of Windows
+
+- 70% of OS worldwide market
+
+- Over the last 15 years, windows has had fair share of severe vulnerabilities
+
+- Most vulnerabilities have publicly accessible exploit code making them relatively easy to exploit
+
+- Microsoft has various OS :
+  
+  + Windows Server 2008, 2012, 2016 etc..
+  + Windows 10, 7, Vista, XP etc
+
+But all OS share the same development model & Philosophy :
+
+- developping in C Programming language ( making them vulnerable buffer overflow, arbitrary code, etc ...)
+
+- By Default Windows is not configured to run securely (ils laissent la possibilité aux diff&rents customers de déployer dans differentes situation)
+
+- Le patching n'est pas immédiat (surtout pour les versions les plus anciennes de windows)
+
+- Les entreprises n'effectuent pas les upgrades immédiatement (et continue d'utiliser les anciennes versions de windows)
+
+---
+
+##### Some type of Windows Vulnerabilities
+
+- Informations disclosure
+- Buffer OverFlow
+- RCE (Remote Code Execution)
+- Privilege Escalation
+- DOS & DDOS

